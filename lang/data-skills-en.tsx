@@ -4,20 +4,19 @@
 
 import dockerImg from "../public/img/skills/docker.svg";
 import gitImg from "../public/img/skills/git.svg";
-import odataImg from "../public/img/skills/odata.svg";
-import sapImg from "../public/img/skills/sap.svg";
 import csharpImg from "../public/img/skills/csharp.svg";
 import cppImg from "../public/img/skills/cpp.svg";
 import javaImg from "../public/img/skills/java.svg";
-import cImg from "../public/img/skills/c.svg";
 import reactImg from "../public/img/skills/react.svg";
 import nodeImg from "../public/img/skills/node.svg";
 import typescriptImg from "../public/img/skills/typescript.svg";
 import pytorchImg from "../public/img/skills/pytorch.svg";
 import tensorflowImg from "../public/img/skills/tensorflow.svg";
 import pythonImg from "../public/img/skills/python.svg";
-
-//TODO check la traduction
+import mongodbImg from "../public/img/skills/mongodb.svg";
+import expressImg from "../public/img/skills/express.svg";
+import nextjsImg from "../public/img/skills/nextjs.svg";
+import postgresqlImg from "../public/img/skills/postgresql.svg";
 
 const skills = [
   {
@@ -40,34 +39,28 @@ const skills = [
   },
   {
     id: 2,
-    title: "Web development",
+    title: "Web Development",
     subSkills: [
       {
-        name: "TypeScript",
-        image: typescriptImg,
+        name: "MongoDB",
+        image: mongodbImg,
       },
       {
-        name: "Node.Js",
-        image: nodeImg,
+        name: "Express",
+        image: expressImg,
       },
       {
         name: "React",
         image: reactImg,
       },
-    ],
-  },
-  {
-    id: 5,
-    title: "Low-level development",
-    subSkills: [
       {
-        name: "C",
-        image: cImg,
+        name: "Node.js",
+        image: nodeImg,
       },
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Object-Oriented",
     subSkills: [
       {
@@ -85,27 +78,13 @@ const skills = [
     ],
   },
   {
-    id: 3,
-    title: "SAP Development",
+    id: 4,
+    title: "Database & DevOps",
     subSkills: [
       {
-        name: "ABAP",
-        image: sapImg,
+        name: "PostgreSQL",
+        image: postgresqlImg,
       },
-      {
-        name: "OData",
-        image: odataImg,
-      },
-      {
-        name: "SAP Fiori",
-        image: sapImg,
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "DevOps & Tools",
-    subSkills: [
       {
         name: "Git",
         image: gitImg,

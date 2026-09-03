@@ -6,7 +6,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Button from "./Button";
 import { fontJersey15 } from "@/lib/font";
 import "../style/project.css";
 import SocialMedia from "./SocialMedia";
@@ -14,9 +13,7 @@ import SocialMedia from "./SocialMedia";
 import Image from "next/image";
 import { Ref } from "react";
 
-import projectsFr from "../../lang/data-projects-fr";
 import projectsEn from "../../lang/data-projects-en";
-
 
 import githubBadge from "../../public/img/social_media/github-badge.svg";
 import { useLanguage } from "../contexts/language-context";
@@ -46,16 +43,8 @@ type Props = {
  */
 function Project({ ref, id, isExpanded, onExpand, className }: Props) {
 
-  const { language } = useLanguage();
+  const projects = projectsEn;
 
-  // Selection du set de projects correspondant au language
-  let projects;
-  if (language === "fr") {
-    projects = projectsFr;
-  } else if (language === "en") {
-    projects = projectsEn;
-  }
-  
   // Récupération du projet correspondant à l'id
   const selectedProject = projects?.find((project) => project.id === id);
 
@@ -64,126 +53,138 @@ function Project({ ref, id, isExpanded, onExpand, className }: Props) {
 
   /**
    * Assombrie la couleur passée en paramètre.
-   *
-   * @param color: Couleur initiale au format hexadécimal #FFFFFF
-   * @param percent: Intensité du filtre sombre à appliquer
-   * @returns La couleur assombrie, au format hexadécimal #FFFFFF
    */
   const darkenColor = (color: string, percent: number) => {
-    // Supression du #
     const hex = color.replace("#", "");
-
-    // Récupération des composante RGB
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
-
-    // Diminution de la valeur de chaques composantes
     const newR = Math.floor(r * (1 - percent));
     const newG = Math.floor(g * (1 - percent));
     const newB = Math.floor(b * (1 - percent));
-
-    // Concaténation des valeurs assombrie et rajout du #
-    return `#${((1 << 24) | (newR << 16) | (newG << 8) | newB)
-      .toString(16)
-      .slice(1)}`;
+    return `#${((1 << 24) | (newR << 16) | (newG << 8) | newB).toString(16).slice(1)}`;
   };
 
-  // Affectation de la couleur plus sombre
-  const darkenedColor = darkenColor(bg_col, 0.2);
-
-  // Récupération du textes
+  const darkenedColor = darkenColor(bg_col, 0.35);
   const { texts } = useLanguage();
+  const tags = (selectedProject as { tags?: string[] })?.tags ?? [];
 
   return (
     <div
       ref={ref}
       className={cn(
-        "group relative mx-4 my-2 flex-grow overflow-hidden rounded-md border-2 border-blue-7/50 transition-all duration-500 hover:border-blue-6/80 lg:w-96 lg:flex-grow-0 lg:hover:-translate-y-7 lg:hover:scale-105",
+        "group relative mx-3 my-2 flex flex-col overflow-hidden rounded-3xl transition-all duration-500 lg:w-[360px] lg:flex-grow-0 lg:hover:-translate-y-6 lg:hover:scale-[1.03]",
         className,
       )}
       style={{
-        background: `linear-gradient(45deg, ${darkenedColor}, ${bg_col} 20%, ${darkenedColor} 45%,${bg_col} 70%, ${darkenedColor})`,
+        background: `linear-gradient(145deg, ${darkenedColor} 0%, ${bg_col} 60%, ${darkenedColor} 100%)`,
+        boxShadow: `0 20px 60px ${bg_col}50, 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12)`,
+        border: `1px solid ${bg_col}60`,
       }}
     >
-      {/* badge Github qui renvoie vers la page github du projet */}
-      <SocialMedia
-        svgSrc={githubBadge}
-        className="p-fluide-anim absolute bottom-1 right-1 z-50 scale-90 shadow-[0_0_5px] shadow-blue-1 lg:bottom-4 lg:right-4 lg:scale-125"
-        href={selectedProject?.link}
-        alt={`${texts.projects.altProjects} ${selectedProject?.title}`}
-      />
+      {/* ── Hero image fills top of card ── */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ height: "220px" }}
+        onClick={() => onExpand(id)}
+      >
+        {/* Background image with slight dark vignette */}
+        <Image
+          src={selectedProject?.image_path ?? ""}
+          alt={selectedProject?.title ?? ""}
+          fill
+          className="object-contain transition-transform duration-700 group-hover:scale-110"
+          style={{ background: "rgba(0,0,0,0.18)" }}
+        />
 
-      <div className="p-bg-lines h-full w-full">
-        <div className="p-bg-lines relative flex h-full w-full flex-col items-center justify-around">
-          {/* Titre présent tout en haut de la carte projet (disparait lorsque expand) */}
-          {!isExpanded && (
-            <span
+        {/* Top vignette for gradient blending */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to bottom, transparent 40%, ${darkenedColor}dd 100%)`,
+          }}
+        />
+
+        {/* GitHub badge – top right */}
+        <div className="absolute top-3 right-3 z-20">
+          <SocialMedia
+            svgSrc={githubBadge}
+            className="p-fluide-anim shadow-[0_2px_12px_rgba(0,0,0,0.6)] scale-95 lg:scale-100"
+            href={selectedProject?.link}
+            alt={`${texts.projects.altProjects} ${selectedProject?.title}`}
+          />
+        </div>
+
+        {/* Expanded overlay description */}
+        {isExpanded && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60 p-6 text-center text-white">
+            <p className="text-sm leading-relaxed">{selectedProject?.description ?? texts.projects.noDescription}</p>
+          </div>
+        )}
+      </div>
+
+      {/* ── Card body ── */}
+      <div className="p-bg-lines flex flex-col gap-3 px-5 pt-4 pb-5">
+
+        {/* Title row */}
+        <div className="flex items-center gap-3">
+          {/* Small logo icon */}
+          <div
+            className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-xl border border-white/20"
+            style={{ background: "rgba(0,0,0,0.3)" }}
+          >
+            <Image
+              src={selectedProject?.image_path ?? ""}
+              alt=""
+              fill
+              className="object-contain p-1"
+            />
+          </div>
+
+          {/* Title */}
+          <div className="flex flex-col min-w-0">
+            <h2
               className={cn(
-                "z-10 text-center text-2xl text-white-1 lg:text-4xl",
+                "truncate text-xl leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] lg:text-2xl",
                 fontJersey15.className,
               )}
             >
               {selectedProject?.title}
-            </span>
-          )}
-
-          <div className="flex h-full flex-col items-center justify-evenly gap-12 md:h-auto md:flex-row lg:flex-col">
+            </h2>
+            {/* Animated accent bar */}
             <div
-              className={cn(
-                "relative flex aspect-[1920/1080] w-64 items-center justify-center overflow-hidden rounded-lg border border-blue-9 transition-all duration-0 lg:w-80 lg:duration-300 lg:group-hover:scale-110",
-                isExpanded ? "aspect-auto h-full w-full" : "",
-              )}
-            >
-              {/* Image représentative du projet, qui couvrira toute la carte lorsque expand */}
-              {/* L'expand se dépclenche lors du clique sur l'image */}
-              <Image
-                src={selectedProject?.image_path ?? ""}
-                placeholder="blur"
-                alt=""
-                className={cn(
-                  "absolute inset-0 duration-700",
-                  isExpanded
-                    ? "h-full w-full object-cover brightness-[0.4]"
-                    : "",
-                )}
-                onClick={() => onExpand(id)}
-              ></Image>
-
-              {/* Bouton qui permet l'expand  */}
-              {!isExpanded && (
-                <Button
-                  text={texts.projects.seeMore}
-                  className="absolute z-20 mb-3 scale-90 self-end md:hidden"
-                  onClick={() => onExpand(id)}
-                />
-              )}
-
-              {/* Section avec le titre et la description qui apparait lors de l'expand */}
-              {isExpanded && (
-                <div className="relative z-30 p-4 text-center text-white-1">
-                  <h2
-                    className={cn(
-                      "mb-2 text-2xl font-bold",
-                      fontJersey15.className,
-                    )}
-                  >
-                    {selectedProject?.title}
-                  </h2>
-                  <p className="text-sm">
-                    {selectedProject?.description ??
-                      texts.projects.noDescription}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Description qui est affiché lorsque l'on est sur grand écran et donc qu'il n'y a pas d'expand */}
-            <p className="mx-4 hidden w-1/3 rounded-md bg-[#00000033] p-2 text-center text-sm md:inline-block lg:w-auto lg:text-base">
-              {selectedProject?.description ?? texts.projects.noDescription}
-            </p>
+              className="mt-1 h-[2px] w-8 rounded-full transition-all duration-500 group-hover:w-16"
+              style={{ background: "rgba(255,255,255,0.55)" }}
+            />
           </div>
         </div>
+
+        {/* Divider */}
+        <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.1)" }} />
+
+        {/* Description */}
+        <p className="line-clamp-3 text-xs leading-relaxed text-white/75 lg:text-[13px]">
+          {selectedProject?.description ?? texts.projects.noDescription}
+        </p>
+
+        {/* Tech tag chips */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-white/85"
+                style={{
+                  background: "rgba(0,0,0,0.30)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

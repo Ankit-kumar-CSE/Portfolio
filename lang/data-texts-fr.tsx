@@ -21,32 +21,27 @@ const textsFr = {
       skills: "Compétences",
     },
     hi: "Salut, je suis",
-    arthur: "Arthur Rasera",
+    ankit: "Ankit kumar",
   },
   about: {
     altPicture: "Photo de profil",
-    desc: "Salut, je suis un jeune ingénieur logiciel diplômé de l'Ensimag. J'aime travailler sur divers projets pour explorer différents environnements techniques et résoudre toutes sortes de problèmes.",
+    desc: "I'm Ankit Kumar, a Full-Stack Developer, B.Tech student, and aspiring tech entrepreneur. I specialize in MERN, Next.js, PostgreSQL, React Native, and AI integration, with a passion for building scalable, real-world products. I enjoy turning ideas into practical digital solutions and continuously exploring new technologies.",
     seeCV: "Cliquez pour voir mon CV",
     timeline: {
-      ensimag: {
-        name: "Ensimag",
-        desc: "Spécialisation en ingénierie des systèmes d'information",
-        date: "2022 - 2025",
+      class10: {
+        name: "Class 10th",
+        desc: "Secondary School Education",
+        date: "2022 - 2023",
       },
-      oxyl: {
-        name: "Oxyl",
-        desc: "Stage / Intelligence Artificielle / DevOps / Développement logiciel",
-        date: "2024",
-      },
-      upc: {
-        name: "Université polytechnique de Catalogne",
-        desc: "Échange universitaire / Cours en anglais",
+      class12: {
+        name: "Class 12th",
+        desc: "Senior Secondary Education",
         date: "2024 - 2025",
       },
-      sopra: {
-        name: "Sopra Steria",
-        desc: "Stage / Développement SAP / Intelligence Artificielle",
-        date: "2025",
+      lpu: {
+        name: "Lovely Professional University",
+        desc: "Bachelor of Technology / Computer Science",
+        date: "2025 - Present",
       },
     },
   },

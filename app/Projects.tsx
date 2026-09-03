@@ -43,7 +43,6 @@ function Projects() {
   // Références pour l'apparition au scroll
   const [project1Ref, project1Visible] = useOnScreen<HTMLDivElement>();
   const [project2Ref, project2Visible] = useOnScreen<HTMLDivElement>();
-  const [project3Ref, project3Visible] = useOnScreen<HTMLDivElement>();
 
   return (
     <ParallaxLayer
@@ -72,16 +71,7 @@ function Projects() {
             project2Visible ? "" : "opacity-0",
           )}
         />
-        <Project
-          ref={project3Ref}
-          id={3}
-          isExpanded={expandedProjectId === 3}
-          onExpand={handleExpandProject}
-          className={cn(
-            "transition-all delay-[600ms] duration-1000 ease-in-out hover:delay-0 hover:duration-300",
-            project3Visible ? "" : "opacity-0",
-          )}
-        />
+
       </div>
     </ParallaxLayer>
   );

@@ -2,7 +2,7 @@
  * Contient toutes les informations relatives aux projets.
  */
 
-import wallpaperGeneratorImg from "../public/img/projects/WallpaperGenerator.png";
+import cognnoraImg from "../public/img/projects/Coggnora.png";
 import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.png";
 import rayTracingImg from "../public/img/projects/RayTracing.png";
 
@@ -11,10 +11,10 @@ import rayTracingImg from "../public/img/projects/RayTracing.png";
 const projects = [
   {
     id: 1,
-    title: "Générateur de fond d’écran",
+    title: "Coggnora",
     description:
-      "Génère une image composée d’une mosaïque d’images données, ici des pochettes d’albums de musique. Les pochettes sont triées par couleur et arrangées dans un ordre spécifique pour produire le résultat final.",
-    image_path: wallpaperGeneratorImg,
+      "Application de productivité bureau conçue pour réduire les distractions numériques. Fonctionnalités : suivi d'activité, surveillance du temps perdu, limite de temps maximum, blocage d'applications et de sites web, et sessions de concentration. Disponible sur le Microsoft Store. Développée avec la stack MERN et Electron.js.",
+    image_path: cognnoraImg,
     link: "https://github.com/Raseraa0/Wallpaper",
     color: "#c2410c",
   },

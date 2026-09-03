@@ -7,7 +7,6 @@ import { fontJersey15, fontInter } from "@/lib/font";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "../contexts/language-context";
-import skillsFr from "../../lang/data-skills-fr";
 import skillsEn from "../../lang/data-skills-en";
 
 // Propriétés
@@ -29,15 +28,7 @@ type Props = {
  *
  */
 function Skill({ id, className = "" }: Props) {
-  const { language } = useLanguage();
-
-  // Selection du set de skills correspondant au language
-  let skills;
-  if (language === "fr") {
-    skills = skillsFr;
-  } else if (language === "en") {
-    skills = skillsEn;
-  }
+  const skills = skillsEn;
 
   // Récupération du skill correspondant à l'id
   const selectedSkill = skills?.find((skill) => skill.id === id);

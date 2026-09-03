@@ -22,7 +22,6 @@ import img4Mountains from "../public/img/background_layer/4_Mountains.png";
 import img3Mountains from "../public/img/background_layer/3_Mountains.png";
 import img2Mountains from "../public/img/background_layer/2_Mountains.png";
 import img1Clouds from "../public/img/background_layer/1_Clouds.png";
-import LangSwitch from "./components/LangSwitch";
 import { useLanguage } from "./contexts/language-context";
 
 // Propriétés
@@ -61,7 +60,6 @@ function Hero({ parallaxRef }: Props) {
       {/* Barre de navigation */}
       <NavigationBar speed={-2} parallaxRef={parallaxRef} />
 
-      <LangSwitch speed={-2.2} />
       {/* <DarkSwitch speed={-2.7} /> */}
 
       {/* Hi */}
@@ -74,7 +72,7 @@ function Hero({ parallaxRef }: Props) {
       {/* Nom et prénom */}
       <Name
         speed={-4}
-        text={texts.hero.arthur}
+        text={texts.hero.ankit}
         className="translate-y-[-20px] text-6xl text-blue-7 lg:translate-y-[-30px] lg:text-8xl"
       />
 

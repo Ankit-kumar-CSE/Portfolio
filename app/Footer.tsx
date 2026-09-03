@@ -8,7 +8,7 @@ import { fontJersey15, fontInter } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-import "./style/footer.css";
+// import "./style/footer.css";
 import { useLanguage } from "./contexts/language-context";
 
 
@@ -60,7 +60,7 @@ function Footer() {
       <div className="pointer-events-auto absolute bottom-0 flex h-9 w-full flex-row items-center justify-evenly">
         {/* Nom Prénom */}
         <span className={cn(fontJersey15.className, "text-xl lg:text-3xl")}>
-          {texts.hero.arthur}
+          {texts.hero.ankit}
         </span>
         <div className="h-1/2 w-px bg-white-1 md:opacity-0"></div>
         <div
@@ -72,19 +72,19 @@ function Footer() {
           {/* Media Github */}
           <FooterMedia
             name={texts.footer.git}
-            href="https://github.com/Raseraa0/"
+            href="https://github.com/Ankit-kumar-CSE"
           />
 
           {/* Media Linkedin */}
           <FooterMedia
             name={texts.footer.linkedin}
-            href="https://fr.linkedin.com/in/arthur-rasera"
+            href="https://www.linkedin.com/in/ankit-kumar-8833a937b/"
           />
 
           {/* Media Mail */}
           <FooterMedia
             name={texts.footer.mail}
-            href="mailto:raserarthur71@gmail.com"
+            href="mailto:ankitjaat00010@gmail.com"
           />
         </div>
       </div>

@@ -188,35 +188,27 @@ function Timeline({ className = "" }: Props) {
           : "-translate-y-20 opacity-0 lg:-translate-x-20 lg:-translate-y-0",
       )}
     >
-      {/* Etape ensimag */}
+      {/* Etape Class 10th */}
       <TimelineStep
-        name={texts.about.timeline.ensimag.name}
-        desc={texts.about.timeline.ensimag.desc}
-        date={texts.about.timeline.ensimag.date}
+        name={texts.about.timeline.class10.name}
+        desc={texts.about.timeline.class10.desc}
+        date={texts.about.timeline.class10.date}
         isFirst
       />
 
-      {/* Etape Oxyl */}
+      {/* Etape Class 12th */}
       <TimelineStep
-        name={texts.about.timeline.oxyl.name}
-        desc={texts.about.timeline.oxyl.desc}
-        date={texts.about.timeline.oxyl.date}
+        name={texts.about.timeline.class12.name}
+        desc={texts.about.timeline.class12.desc}
+        date={texts.about.timeline.class12.date}
         right
       />
 
-      {/* Etape UPC */}
+      {/* Etape LPU */}
       <TimelineStep
-        name={texts.about.timeline.upc.name}
-        desc={texts.about.timeline.upc.desc}
-        date={texts.about.timeline.upc.date}
-      />
-
-      {/* Etape Sopra */}
-      <TimelineStep
-        name={texts.about.timeline.sopra.name}
-        desc={texts.about.timeline.sopra.desc}
-        date={texts.about.timeline.sopra.date}
-        right
+        name={texts.about.timeline.lpu.name}
+        desc={texts.about.timeline.lpu.desc}
+        date={texts.about.timeline.lpu.date}
         isLast
       />
     </ul>

@@ -31,7 +31,7 @@ function Skills() {
         className="p-fluide-anim relative m-auto flex aspect-[2/3] w-5/6 max-w-96 flex-col lg:scale-110"
       >
         <CrossSkills />
-        <div className="grid h-full w-full grid-cols-2 grid-rows-3 gap-4">
+        <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-4">
           <Skill
             id={1}
             className={cn(
@@ -57,20 +57,6 @@ function Skills() {
             id={4}
             className={cn(
               "transition-all delay-300 duration-1000 ease-in-out",
-              skillsVisible ? "" : "scale-0 opacity-0",
-            )}
-          />
-          <Skill
-            id={5}
-            className={cn(
-              "transition-all delay-[400] duration-1000 ease-in-out",
-              skillsVisible ? "" : "scale-0 opacity-0",
-            )}
-          />
-          <Skill
-            id={6}
-            className={cn(
-              "transition-all delay-500 duration-1000 ease-in-out",
               skillsVisible ? "" : "scale-0 opacity-0",
             )}
           />

@@ -13,7 +13,7 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
 import SocialMedia from "./components/SocialMedia";
 
-import selfieImg from "../public/img/selfie_v1.jpg";
+import selfieImg from "../public/img/selfie_v1.jpeg";
 import githubBadge from "../public/img/social_media/github-badge.svg";
 import linkedinBadge from "../public/img/social_media/linkedin-badge.svg";
 import mailBadge from "../public/img/social_media/mail-badge.svg";
@@ -68,7 +68,7 @@ function About() {
             alt={texts.about.altPicture}
             placeholder="blur"
             className={cn(
-              "w-40 rounded-full transition-all duration-500 ease-in-out lg:w-64",
+              "w-40 h-36 rounded-full object-cover transition-all duration-500 ease-in-out lg:w-64 lg:h-56",
               imgVisible ? "" : "translate-x-40 opacity-0",
             )}
           />
@@ -107,7 +107,7 @@ function About() {
               <SocialMedia
                 svgSrc={githubBadge}
                 num="1"
-                href="https://github.com/Raseraa0/"
+                href="https://github.com/Ankit-kumar-CSE"
                 alt={texts.hero.social.altGit}
               />
             </div>
@@ -117,7 +117,7 @@ function About() {
               <SocialMedia
                 svgSrc={linkedinBadge}
                 num="2"
-                href="https://fr.linkedin.com/in/arthur-rasera"
+                href="https://www.linkedin.com/in/ankit-kumar-8833a937b/"
                 alt={texts.hero.social.altLinkedin}
               />
             </div>
@@ -127,7 +127,7 @@ function About() {
               <SocialMedia
                 svgSrc={mailBadge}
                 num="3"
-                href="mailto:raserarthur71@gmail.com"
+                href="mailto:ankitjaat00010@gmail.com"
                 alt={texts.hero.social.altMail}
               />
             </div>
