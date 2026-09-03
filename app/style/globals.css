@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ─── Base ─────────────────────────────────── */
+
+:root {
+  --cyan:   #a2fff4;
+  --cyan2:  #6aceff;
+  --navy:   #00131c;
+  --navy2:  #002545;
+  --navy3:  #003b64;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
 
 .p-minimal-size {
   min-width: 320px;
@@ -10,18 +26,15 @@
 .half-ellipse {
   width: 130%;
   height: 280px;
-  /* hauteur importante pour bien voir la forme */
   border-top-left-radius: 50% 100%;
   border-top-right-radius: 50% 100%;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-
-/* Hero */
+/* ─── Hero / Parallax ───────────────────────── */
 
 .p-animation {
-  /* height: 100vh; */
   min-width: 320px;
   min-height: 600px;
   display: block;
@@ -45,24 +58,102 @@
   transition: all 0.5s ease-in-out;
 }
 
-.pointer-events-none {
+.pointer-events-none  { pointer-events: none; }
+.pointer-events-auto  { pointer-events: auto; }
+
+@media (min-width: 1024px) {
+  .pointer-events-none-large { pointer-events: none; }
+}
+
+/* ─── Keyframes ─────────────────────────────── */
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: .7;  box-shadow: 0 0 12px 2px var(--cyan); }
+  50%       { opacity: 1;   box-shadow: 0 0 28px 6px var(--cyan2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes shimmer-text {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes shimmer-btn {
+  from { background-position: 0 0; }
+  to   { background-position: -200% 0; }
+}
+
+@keyframes gradient-sweep {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0)   scale(1);   opacity: .35; }
+  33%       { transform: translate(20px, -15px) scale(1.1); opacity: .5;  }
+  66%       { transform: translate(-10px, 10px) scale(.95); opacity: .4;  }
+}
+
+/* ─── Utility classes ────────────────────────── */
+
+/* Animated gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #a2fff4 0%, #6aceff 40%, #a2fff4 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 4s linear infinite;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(0, 19, 28, 0.6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(162, 255, 244, 0.14);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(162,255,244,0.08);
+}
+
+/* Neon border glow */
+.neon-border {
+  border: 1px solid rgba(106, 206, 255, 0.35);
+  box-shadow: 0 0 12px rgba(106, 206, 255, 0.2), inset 0 0 12px rgba(106, 206, 255, 0.04);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Floating orb decoration */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
   pointer-events: none;
+  animation: orb-drift 8s ease-in-out infinite;
 }
 
-
-.pointer-events-auto {
-  pointer-events: auto;
+/* Section titles */
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: .04em;
 }
 
-@media (min-width:1024px) {
-  .pointer-events-none-large {
-    pointer-events: none;
-  }
+/* Shimmer button animation */
+.shimmer-btn {
+  background: linear-gradient(
+    90deg,
+    rgba(162,255,244,0) 0%,
+    rgba(162,255,244,0.25) 50%,
+    rgba(162,255,244,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-btn 2.5s linear infinite;
 }
 
-
-/* que des min height de 600px ( comme p-animation ) */
-
-.debug {
-  outline: solid red 3px;
-}
+/* debug */
+.debug { outline: solid red 3px; }

@@ -20,12 +20,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Réseau de neurones depuis zéro",
+    title: "KisanRaw",
     description:
-      "Implémentation d’un réseau de neurones sans utiliser de bibliothèques d’IA existantes. Le but est de suivre les mêmes principes que Keras avec TensorFlow en Python, à l’aide de différentes couches facilement manipulables.",
+      "Plateforme de gestion des achats et des files d'attente des agriculteurs alimentée par l'IA. Application web et mobile complète pour la réservation de créneaux, le suivi en temps réel des files d'attente, la génération de jetons numériques, la gestion de la capacité des centres et la prédiction du temps d'attente estimé. Les agriculteurs peuvent suivre leur statut d'achat et de paiement via des notifications SMS/push en temps réel.",
     image_path: neuralNetworkFromScratchImg,
-    link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
-    color: "#0f766e",
+    link: "https://github.com/Ankit-kumar-CSE",
+    color: "#15803d",
+    tags: ["MERN Stack", "React Native", "Supabase"],
   },
   {
     id: 3,

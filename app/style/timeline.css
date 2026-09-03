@@ -1,48 +1,46 @@
-/* blue: {
-  1: "#a2fff4",
-  2: "#c4ebff",
-  3: "#b0e3ff",
-  4: "#97dcff",
-  5: "#6aceff",
-  6: "#81d3ff",
-  7: "#003b64",
-  8: "#002545",
-  9: "#00131c", */
-
+/* ─── Timeline ──────────────────────────────── */
 
 .timeline-box {
-    background-color: #003b64;
-    border: solid 1px #6aceff;
+  background: rgba(0, 37, 69, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(162, 255, 244, 0.18);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(162,255,244,0.06);
+  border-radius: 12px;
 }
 
 .timeline-middle svg {
-    color: #a2fff4;
+  color: #a2fff4;
+  filter: drop-shadow(0 0 6px #a2fff4) drop-shadow(0 0 12px #6aceff);
 }
 
 .timeline li hr {
-    background-color: #f7f7f7;
+  background: linear-gradient(90deg, #6aceff 0%, #a2fff4 50%, #6aceff 100%);
+  opacity: 0.5;
 }
 
 .timeline li .first-hr {
-    background: linear-gradient(to right, transparent, #f7f7f7);
+  background: linear-gradient(to right, transparent, #a2fff4);
+  opacity: 0.5;
 }
 
 .timeline li .last-hr {
-    background: linear-gradient(to right, #f7f7f7, transparent);
+  background: linear-gradient(to right, #a2fff4, transparent);
+  opacity: 0.5;
 }
 
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
+  .timeline li .first-hr {
+    background: linear-gradient(to bottom, transparent, #a2fff4);
+    opacity: 0.5;
+  }
 
-    .timeline li .first-hr {
-        background: linear-gradient(to bottom, transparent, #f7f7f7);
-    }
+  .timeline li .last-hr {
+    background: linear-gradient(to bottom, #a2fff4, transparent);
+    opacity: 0.5;
+  }
 
-    .timeline li .last-hr {
-        background: linear-gradient(to bottom, #f7f7f7, transparent);
-    }
-
-    .timeline-box {
-        margin-bottom: 30px;
-    }
-
-}
+  .timeline-box {
+    margin-bottom: 30px;
+  }
+}

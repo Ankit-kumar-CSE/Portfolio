@@ -39,6 +39,11 @@ function Name({ speed, text, className = "" }: Props) {
           fontJersey15.className,
           className,
         )}
+        style={{
+          textShadow:
+            "0 0 30px rgba(0,19,28,0.7), 0 2px 8px rgba(0,0,0,0.5)",
+          letterSpacing: "0.03em",
+        }}
       >
         <span className="pointer-events-auto">{text}</span>
       </p>

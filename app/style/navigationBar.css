@@ -1,31 +1,64 @@
-/* blue: {
-  1: "#a2fff4",
-  2: "#c4ebff",
-  3: "#b0e3ff",
-  4: "#97dcff",
-  5: "#6aceff",
-  6: "#81d3ff",
-  7: "#003b64",
-  8: "#002545",
-  9: "#00131c", */
+/* ─── Navigation Bar ──────────────────────── */
 
+#navigation-bar {
+  background: rgba(0, 19, 28, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(162, 255, 244, 0.12);
+  border-radius: 0 0 0 20px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(162,255,244,0.08);
+  padding: 8px 0 8px 0;
+}
 
 .p-navigation-bar-text {
-  transition: all 0.2s ease-in-out;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Animated underline */
+.p-navigation-bar-text::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #a2fff4, #6aceff);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-navigation-bar-text:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 #navigation-bar:has(.p-navigation-bar-text:hover) .p-navigation-bar-text:not(:hover) {
-  color: #003b64;
-  scale: 0.8;
+  color: rgba(0, 59, 100, 0.7);
+  scale: 0.85;
+  filter: blur(0.3px);
 }
 
 .p-navigation-bar-text:hover {
-  scale: 1.1;
-  text-shadow: 0 0 30px #002545;
+  scale: 1.08;
+  color: #a2fff4;
+  text-shadow: 0 0 20px rgba(162, 255, 244, 0.6), 0 0 40px rgba(106, 206, 255, 0.3);
   cursor: pointer;
 }
 
 .p-navigation-bar-text:active {
-  scale: 1.2;
-  text-shadow: 0 0 10px #002545;
+  scale: 1.15;
+  text-shadow: 0 0 12px rgba(162, 255, 244, 0.8);
 }
+
+@media (min-width: 1024px) {
+  .p-navigation-bar-text::after {
+    left: 48px;
+    right: 48px;
+  }
+}

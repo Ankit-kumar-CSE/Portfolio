@@ -19,13 +19,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Neural Network from scratch",
+    title: "KisanRaw",
     description:
-      "Implementation of a neural network without using existing AI libraries. The goal is to follow the same principles as Keras with TensorFlow in Python, using various layers that can be easily manipulated.",
+      "AI-Powered Farmer Procurement & Queue Management platform. Full-stack web & mobile app streamlining farmer procurement, slot booking, and queue management with real-time queue tracking, digital token generation, centre capacity management, and estimated waiting-time prediction. Farmers can track procurement and payment status with real-time SMS/push notifications.",
     image_path: neuralNetworkFromScratchImg,
-    link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
-    color: "#0f766e",
-    tags: ["Python", "NumPy", "Deep Learning"],
+    link: "https://github.com/Ankit-kumar-CSE",
+    color: "#15803d",
+    tags: ["MERN Stack", "React Native", "Supabase"],
   },
   {
     id: 3,

@@ -8,6 +8,7 @@ import Skill from "./components/Skill";
 import CrossSkills from "./components/CrossSkills";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./contexts/language-context";
 
 /**
  * @Skills
@@ -19,13 +20,33 @@ import { cn } from "@/lib/utils";
 function Skills() {
   // Référence pour l'apparition au scroll
   const [skillsRef, skillsVisible] = useOnScreen<HTMLDivElement>();
+  const [titleRef, titleVisible] = useOnScreen<HTMLDivElement>();
+
+  const { texts } = useLanguage();
 
   return (
     <ParallaxLayer
       offset={3}
       speed={0}
-      className="min-[600px] flex flex-col items-center bg-blue-9 dark:bg-blue-4"
+      className="min-[600px] flex flex-col items-center bg-blue-9 dark:bg-blue-4 pt-8"
     >
+      {/* Section title */}
+      <div
+        ref={titleRef}
+        className={cn(
+          "flex flex-col items-center gap-2 mb-8 transition-all duration-700 ease-out",
+          titleVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6",
+        )}
+      >
+        <h2 className="section-title text-3xl lg:text-4xl text-gradient">
+          {texts.hero.nav.skills}
+        </h2>
+        <div
+          className="h-[2px] w-16 rounded-full"
+          style={{ background: "linear-gradient(90deg, #a2fff4, #6aceff)" }}
+        />
+      </div>
+
       <div
         ref={skillsRef}
         className="p-fluide-anim relative m-auto flex aspect-[2/3] w-5/6 max-w-96 flex-col lg:scale-110"
@@ -67,3 +88,4 @@ function Skills() {
 }
 
 export default Skills;
+
