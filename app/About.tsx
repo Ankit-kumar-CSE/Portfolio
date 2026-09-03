@@ -4,7 +4,7 @@
  */
 
 import { ParallaxLayer } from "@react-spring/parallax";
-import Image from "next/image";
+
 import Timeline from "./components/Timeline";
 import "./style/about.css";
 import Button from "./components/Button";
@@ -13,7 +13,7 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
 import SocialMedia from "./components/SocialMedia";
 
-import selfieImg from "../public/img/selfie_v1.jpeg";
+
 import githubBadge from "../public/img/social_media/github-badge.svg";
 import linkedinBadge from "../public/img/social_media/linkedin-badge.svg";
 import mailBadge from "../public/img/social_media/mail-badge.svg";
@@ -29,7 +29,7 @@ import { useLanguage } from "./contexts/language-context";
 function About() {
   // Références pour l'apparition au scroll
   const [aboutRef, aboutVisible] = useOnScreen<HTMLDivElement>();
-  const [imgRef, imgVisible] = useOnScreen<HTMLImageElement>();
+
   const [descRef, descVisible] = useOnScreen<HTMLDivElement>();
   const [cvRef, cvVisible] = useOnScreen<HTMLButtonElement>();
   const [contactRef, contactVisible] = useOnScreen<HTMLDivElement>();
@@ -60,18 +60,6 @@ function About() {
         )}
       >
         <div className="lg:gap0 m-px flex flex-col items-center justify-evenly gap-8 rounded-2xl bg-blue-9/95 py-8 lg:h-full  lg:py-0 dark:bg-blue-1/85">
-          {/* Photo de profil */}
-          <Image
-            ref={imgRef}
-            id="img-selfie"
-            src={selfieImg}
-            alt={texts.about.altPicture}
-            placeholder="blur"
-            className={cn(
-              "w-40 h-36 rounded-full object-cover transition-all duration-500 ease-in-out lg:w-64 lg:h-56",
-              imgVisible ? "" : "translate-x-40 opacity-0",
-            )}
-          />
 
           {/* Description de moi même */}
           <div
